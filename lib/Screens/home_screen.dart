@@ -5,11 +5,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        
-        body: SafeArea(child: Center(
-          child: Text('Hello, Flutter!'),
-        ),)
-      );
+    return const Center(child: Text('Home Screen'));
   }
 }
