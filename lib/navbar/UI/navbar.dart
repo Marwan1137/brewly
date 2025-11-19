@@ -1,6 +1,6 @@
 import 'package:brewly/Screens/explore_screen.dart';
 import 'package:brewly/Screens/favourites_screen.dart';
-import 'package:brewly/Screens/home_screen.dart';
+import 'package:brewly/Screens/home_screen/home_screen.dart';
 import 'package:brewly/Screens/profile_screen.dart';
 import 'package:brewly/Screens/quiz_screen.dart';
 import 'package:brewly/navbar/logic/cubit/nav_bar_cubit.dart';
@@ -23,7 +23,7 @@ class NavbarUi extends StatelessWidget {
       builder: (context, state) {
         NavBarCubit cubitNavBar = context.read<NavBarCubit>();
         return Scaffold(
-          body: SafeArea(child: pages[cubitNavBar.currentIndex]),
+          body: pages[cubitNavBar.currentIndex],
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
