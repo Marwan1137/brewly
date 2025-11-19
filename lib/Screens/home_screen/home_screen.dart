@@ -1,4 +1,5 @@
 // presentation/home/home_screen.dart
+import 'package:brewly/Screens/coffee_beans_types/coffee_beans_types_screen.dart';
 import 'package:brewly/Screens/home_screen/sections/appbar.dart';
 import 'package:brewly/Screens/home_screen/sections/categories_section.dart';
 import 'package:brewly/Screens/home_screen/sections/featured_section.dart';
@@ -121,10 +122,35 @@ class HomeScreen extends StatelessWidget {
                           itemCount: categories.length,
                           separatorBuilder: (_, _) => const SizedBox(width: 20),
                           itemBuilder: (context, index) {
-                            return CategoryCard(category: categories[index]);
+                            final category = categories[index];
+
+                            return CategoryCard(
+                              category: category,
+                              onTap: () {
+                                // Here you can handle each category differently
+                                switch (category.name.toLowerCase()) {
+                                  case 'beans':
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) =>
+                                            CoffeeBeansTypesScreen(),
+                                      ),
+                                    );
+                                    break;
+                                  case 'capsules':
+                                    break;
+                                  case 'equipment':
+                                    break;
+                                  case 'methods':
+                                    break;
+                                }
+                              },
+                            );
                           },
                         ),
                       ),
+
                       const SizedBox(height: 20),
 
                       /* -------------------------------------------------------------------------- */

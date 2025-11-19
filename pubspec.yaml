@@ -78,6 +78,7 @@ flutter:
     - assets/animations/Coffee_love.json
     - assets/navbarIcons/
     - assets/images/homescreenimages/
+    - assets/images/coffeetypesimages/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
