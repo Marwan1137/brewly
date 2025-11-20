@@ -13,7 +13,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.8,
       popularity: 95,
       brewingSteps: [
-        'Use pour-over method (V60 recommended).',
+        'Use pour-over method (V60 recommended)',
         'Grind: Medium-fine.',
         'Water temp: 92°C - 94°C.',
         'Brew time: 2:30 - 3:00 minutes.',
@@ -38,7 +38,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.7,
       popularity: 90,
       brewingSteps: [
-        'Use drip coffee or Aeropress.',
+        'Use drip coffee or Aeropress',
         'Grind: Medium.',
         'Water temp: 90°C - 93°C.',
         'Brew time: 3:00 - 3:30 minutes.',
@@ -63,7 +63,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.6,
       popularity: 88,
       brewingSteps: [
-        'Use Chemex or pour-over.',
+        'Use Chemex or pour-over',
         'Grind: Medium-coarse.',
         'Water temp: 92°C - 95°C.',
         'Brew time: 3:30 - 4:00 minutes.',
@@ -82,7 +82,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.5,
       popularity: 85,
       brewingSteps: [
-        'Use drip coffee or French press.',
+        'Use drip coffee or French press',
         'Grind: Medium-coarse.',
         'Water temp: 93°C.',
         'Brew time: 4:00 minutes (French press).',
@@ -107,7 +107,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.4,
       popularity: 80,
       brewingSteps: [
-        'Use French press or espresso.',
+        'Use French press or espresso',
         'Grind: Coarse for French press, fine for espresso.',
         'Water temp: 92°C - 94°C.',
         'Brew time: 4:00 minutes (French press), 25-30 sec (espresso).',
@@ -133,7 +133,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.3,
       popularity: 78,
       brewingSteps: [
-        'Use drip coffee or French press.',
+        'Use drip coffee or French press',
         'Grind: Medium.',
         'Water temp: 91°C - 93°C.',
         'Brew time: 3:30 minutes.',
@@ -152,7 +152,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.5,
       popularity: 82,
       brewingSteps: [
-        'Use pour-over or Chemex.',
+        'Use pour-over or Chemex',
         'Grind: Medium-fine.',
         'Water temp: 92°C - 94°C.',
         'Brew time: 3:00 minutes.',
@@ -171,7 +171,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.6,
       popularity: 83,
       brewingSteps: [
-        'Use pour-over (V60) or Aeropress.',
+        'Use pour-over (V60) or Aeropress',
         'Grind: Medium-fine.',
         'Water temp: 92°C - 95°C.',
         'Brew time: 2:30 - 3:00 minutes.',
@@ -190,7 +190,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.9,
       popularity: 96,
       brewingSteps: [
-        'Use drip coffee or pour-over.',
+        'Use drip coffee or pour-over',
         'Grind: Medium.',
         'Water temp: 90°C - 92°C.',
         'Brew time: 3:00 minutes.',
@@ -208,7 +208,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.8,
       popularity: 94,
       brewingSteps: [
-        'Use pour-over or Chemex.',
+        'Use pour-over or Chemex',
         'Grind: Medium-fine.',
         'Water temp: 92°C - 94°C.',
         'Brew time: 2:30 - 3:00 minutes.',
@@ -227,7 +227,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.4,
       popularity: 79,
       brewingSteps: [
-        'Use pour-over or drip coffee.',
+        'Use pour-over or drip coffee',
         'Grind: Medium.',
         'Water temp: 91°C - 94°C.',
         'Brew time: 3:00 - 3:30 minutes.',
@@ -245,7 +245,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.3,
       popularity: 76,
       brewingSteps: [
-        'Use French press or espresso.',
+        'Use French press or espresso',
         'Grind: Coarse for French press, fine for espresso.',
         'Water temp: 92°C - 94°C.',
         'Brew time: 4:00 minutes (French press), 25-30 sec (espresso).',
@@ -263,7 +263,7 @@ class CoffeeDetailsRepoImpl implements CoffeeBeansTypesRepo {
       rating: 4.7,
       popularity: 88,
       brewingSteps: [
-        'Use pour-over or drip coffee.',
+        'Use pour-over or drip coffee',
         'Grind: Medium.',
         'Water temp: 91°C - 93°C.',
         'Brew time: 3:00 minutes.',

@@ -11,6 +11,8 @@ class CoffeeBeansTypesCubit extends Cubit<CoffeeBeansTypesState> {
   CoffeeBeansTypesCubit({required this.beansTypesRepo})
     : super(CoffeeBeansTypesInitial());
 
+  CoffeeBean? selectedCoffee;
+
   Future<void> loadCoffeeTypes() async {
     try {
       emit(CoffeeBeanTypesLoading());
@@ -21,5 +23,9 @@ class CoffeeBeansTypesCubit extends Cubit<CoffeeBeansTypesState> {
     } catch (e) {
       emit(CoffeeBeansTypesError(message: e.toString()));
     }
+  }
+
+  void selectCoffee(CoffeeBean coffee) {
+    selectedCoffee = coffee;
   }
 }
