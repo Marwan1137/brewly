@@ -1,5 +1,6 @@
 // presentation/home/home_screen.dart
 import 'package:brewly/Screens/coffee_beans_types/coffee_beans_types_screen.dart';
+import 'package:brewly/Screens/coffee_capsules_screen/coffee_capsules_screen.dart';
 import 'package:brewly/Screens/home_screen/sections/appbar.dart';
 import 'package:brewly/Screens/home_screen/sections/categories_section.dart';
 import 'package:brewly/Screens/home_screen/sections/featured_section.dart';
@@ -139,6 +140,12 @@ class HomeScreen extends StatelessWidget {
                                     );
                                     break;
                                   case 'capsules':
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => CoffeeCapsulesScreen(),
+                                      ),
+                                    );
                                     break;
                                   case 'equipment':
                                     break;
