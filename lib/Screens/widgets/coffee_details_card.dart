@@ -268,7 +268,7 @@ class GenericDetailsScreen<T> extends StatelessWidget {
                         );
                       },
                     ),
-                  ).animate().flip(delay: 1200.ms, duration: 1000.ms),
+                  ).animate().flip(delay: 700.ms, duration: 1000.ms),
                 ],
               ),
             ),
