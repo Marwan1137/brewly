@@ -5,4 +5,6 @@ sealed class NavBarState {}
 
 final class NavBarInitial extends NavBarState {}
 
-final class NavBarIndexChanged extends NavBarState {}
+final class NavBarIndexChanged extends NavBarState {
+  NavBarIndexChanged(int index);
+}

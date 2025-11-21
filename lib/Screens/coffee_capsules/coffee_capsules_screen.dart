@@ -1,5 +1,5 @@
-import 'package:brewly/Screens/coffee_capsules_details_screen.dart/coffee_capsules_details_screen.dart';
-import 'package:brewly/Screens/coffee_capsules_screen/logic/cubit/coffee_capsules_cubit.dart';
+import 'package:brewly/Screens/coffee_capsules/coffee_capsules_details_screen.dart';
+import 'package:brewly/Screens/coffee_capsules/logic/cubit/coffee_capsules_cubit.dart';
 import 'package:brewly/Screens/widgets/coffee_item_card.dart';
 import 'package:brewly/data/DI/di.dart';
 import 'package:flutter/material.dart';

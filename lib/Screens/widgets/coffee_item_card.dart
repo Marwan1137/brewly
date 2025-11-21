@@ -10,6 +10,7 @@ class GenericListScreen<T> extends StatelessWidget {
   final String Function(T) getDescription;
   final void Function(BuildContext context, T item)? onItemTap;
   final Color? backgroundColor;
+  final String Function(T)? getLink;
 
   const GenericListScreen({
     super.key,
@@ -20,6 +21,7 @@ class GenericListScreen<T> extends StatelessWidget {
     required this.getDescription,
     required this.onItemTap,
     this.backgroundColor,
+    this.getLink,
   });
 
   @override
@@ -86,6 +88,19 @@ class GenericListScreen<T> extends StatelessWidget {
                               color: Colors.black54,
                             ),
                           ),
+
+                          if (getLink != null) ...[
+                            Center(
+                              child: Text(
+                                getLink!(item),
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                          ],
                         ],
                       ).animate().scaleXY(delay: 1000.ms, duration: 600.ms),
                     ),

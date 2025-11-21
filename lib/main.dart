@@ -1,8 +1,10 @@
-import 'package:brewly/Screens/coffee_beans_types/logic/cubit/coffee_beans_types_cubit.dart';
-import 'package:brewly/Screens/coffee_capsules_screen/logic/cubit/coffee_capsules_cubit.dart';
+import 'package:brewly/Screens/coffee_beans/logic/cubit/coffee_beans_types_cubit.dart';
+import 'package:brewly/Screens/coffee_capsules/logic/cubit/coffee_capsules_cubit.dart';
+import 'package:brewly/Screens/equipment/logic/cubit/equipment_cubit.dart';
 import 'package:brewly/data/DI/di.dart';
 import 'package:brewly/domain/repositories/coffee_beans_types_repo.dart';
 import 'package:brewly/domain/repositories/coffee_capsules_repo.dart';
+import 'package:brewly/domain/repositories/equpment_repo.dart';
 import 'package:brewly/navbar/logic/cubit/nav_bar_cubit.dart';
 import 'package:brewly/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +35,10 @@ class MyApp extends StatelessWidget {
         BlocProvider<CoffeeCapsulesCubit>(
           create: (_) =>
               CoffeeCapsulesCubit(capsulesRepo: getIt<CoffeeCapsulesRepo>()),
+        ),
+        BlocProvider<EquipmentCubit>(
+          create: (context) =>
+              EquipmentCubit(equipmentRepo: getIt<EquipmentRepo>()),
         ),
       ],
 

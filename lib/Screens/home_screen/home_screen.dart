@@ -1,6 +1,7 @@
 // presentation/home/home_screen.dart
-import 'package:brewly/Screens/coffee_beans_types/coffee_beans_types_screen.dart';
-import 'package:brewly/Screens/coffee_capsules_screen/coffee_capsules_screen.dart';
+import 'package:brewly/Screens/coffee_beans/coffee_beans_types_screen.dart';
+import 'package:brewly/Screens/coffee_capsules/coffee_capsules_screen.dart';
+import 'package:brewly/Screens/equipment/equipment_screen.dart';
 import 'package:brewly/Screens/home_screen/sections/appbar.dart';
 import 'package:brewly/Screens/home_screen/sections/categories_section.dart';
 import 'package:brewly/Screens/home_screen/sections/featured_section.dart';
@@ -61,6 +62,75 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(height: 10),
 
                       /* -------------------------------------------------------------------------- */
+                      /*                             Categories Section                             */
+                      /* -------------------------------------------------------------------------- */
+                      Text(
+                            'Explore Categories',
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                          .animate()
+                          .fadeIn(delay: 1000.ms, duration: 600.ms)
+                          .slideY(begin: 0.1, end: 0),
+                      const SizedBox(height: 10),
+
+                      SizedBox(
+                        height:
+                            MediaQuery.of(context).size.height *
+                            0.10, // dynamic height
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          itemCount: categories.length,
+                          separatorBuilder: (_, _) => const SizedBox(width: 20),
+                          itemBuilder: (context, index) {
+                            final category = categories[index];
+
+                            return SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.25,
+                              child: CategoryCard(
+                                category: category,
+                                onTap: () {
+                                  switch (category.name.toLowerCase()) {
+                                    case 'beans':
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) =>
+                                              CoffeeBeansTypesScreen(),
+                                        ),
+                                      );
+                                      break;
+                                    case 'capsules':
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) =>
+                                              CoffeeCapsulesScreen(),
+                                        ),
+                                      );
+                                      break;
+                                    case 'equipment':
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) => EquipmentScreen(),
+                                        ),
+                                      );
+                                      break;
+                                  }
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      /* -------------------------------------------------------------------------- */
                       /*                              Featured Section                              */
                       /* -------------------------------------------------------------------------- */
                       Text(
@@ -100,71 +170,6 @@ class HomeScreen extends StatelessWidget {
 
                       /* -------------------------------------------------------------------------- */
                       const SizedBox(height: 10),
-
-                      /* -------------------------------------------------------------------------- */
-                      /*                             Categories Section                             */
-                      /* -------------------------------------------------------------------------- */
-                      Text(
-                            'Explore Categories',
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )
-                          .animate()
-                          .fadeIn(delay: 1000.ms, duration: 600.ms)
-                          .slideY(begin: 0.1, end: 0),
-                      const SizedBox(height: 10),
-
-                      SizedBox(
-                        height:
-                            MediaQuery.of(context).size.height *
-                            0.10, // dynamic height
-                        child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          itemCount: categories.length,
-                          separatorBuilder: (_, _) => const SizedBox(width: 20),
-                          itemBuilder: (context, index) {
-                            final category = categories[index];
-
-                            return SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.20,
-                              child: CategoryCard(
-                                category: category,
-                                onTap: () {
-                                  switch (category.name.toLowerCase()) {
-                                    case 'beans':
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (_) =>
-                                              CoffeeBeansTypesScreen(),
-                                        ),
-                                      );
-                                      break;
-                                    case 'capsules':
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (_) =>
-                                              CoffeeCapsulesScreen(),
-                                        ),
-                                      );
-                                      break;
-                                    case 'equipment':
-                                      break;
-                                    case 'methods':
-                                      break;
-                                  }
-                                },
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-
-                      const SizedBox(height: 20),
 
                       /* -------------------------------------------------------------------------- */
                       /* -------------------------------------------------------------------------- */

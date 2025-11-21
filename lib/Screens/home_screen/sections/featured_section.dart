@@ -1,6 +1,8 @@
 import 'package:brewly/domain/entities/coffee.dart';
+import 'package:brewly/navbar/logic/cubit/nav_bar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FeaturedCoffeeCard extends StatelessWidget {
   final Coffee coffee;
@@ -68,7 +70,9 @@ class FeaturedCoffeeCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          context.read<NavBarCubit>().changeIndex(1);
+                        },
                         child: const Text(
                           'Explore Coffee',
                           style: TextStyle(

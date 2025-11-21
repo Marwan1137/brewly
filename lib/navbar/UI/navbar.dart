@@ -1,4 +1,4 @@
-import 'package:brewly/Screens/coffee_beans_types/coffee_beans_types_screen.dart';
+import 'package:brewly/Screens/coffee_beans/coffee_beans_types_screen.dart';
 import 'package:brewly/Screens/explore_screen.dart';
 import 'package:brewly/Screens/favourites_screen.dart';
 import 'package:brewly/Screens/home_screen/home_screen.dart';

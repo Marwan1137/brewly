@@ -95,10 +95,10 @@ class HomeRepositoryImpl implements HomeRepo {
       name: 'Equipment',
       iconPath: 'assets/images/homescreenimages/explore3.svg',
     ),
-    Category(
-      name: 'Methods',
-      iconPath: 'assets/images/homescreenimages/coffeeoutlined.svg',
-    ),
+    // Category(
+    //   name: 'Methods',
+    //   iconPath: 'assets/images/homescreenimages/coffeeoutlined.svg',
+    // ),
   ];
 
   @override
