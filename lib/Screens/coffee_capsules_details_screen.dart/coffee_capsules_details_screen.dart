@@ -24,6 +24,8 @@ class CoffeeCapsulesDetailsScreen extends StatelessWidget {
       getSuggestedDrinks: (capsule) => capsule.suggestedDrinks,
       backgroundColor: Colors.brown[50],
       chipColor: Colors.brown[300],
+      getMachines: (capsule) => capsule.machines,
+      getIntensity: selectedCapsule.intensity,
     );
   }
 }

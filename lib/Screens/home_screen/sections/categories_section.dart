@@ -14,8 +14,7 @@ class CategoryCard extends StatelessWidget {
       onTap: onTap,
       child:
           Container(
-                height: 80,
-                width: 80,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.grey[300],
                   borderRadius: BorderRadius.circular(20),
@@ -41,7 +40,7 @@ class CategoryCard extends StatelessWidget {
                 ),
               )
               .animate()
-              .fadeIn(delay: 1500.ms, duration: 600.ms)
+              .scaleXY(delay: 1500.ms, duration: 600.ms)
               .scale(begin: const Offset(0.9, 0.9), end: const Offset(1, 1)),
     );
   }

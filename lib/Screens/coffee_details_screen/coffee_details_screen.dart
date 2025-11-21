@@ -25,6 +25,12 @@ class CoffeeDetailsScreen extends StatelessWidget {
       getSuggestedDrinks: (coffee) => coffee.suggestedDrinks,
       backgroundColor: Colors.brown[50],
       chipColor: Colors.brown[300],
+      getOrigin: selectedCoffee.origin,
+      getPopularity: selectedCoffee.popularity,
+      rating: selectedCoffee.rating,
     );
+
+    // rating: 4.7,
+    //   popularity: 88,
   }
 }

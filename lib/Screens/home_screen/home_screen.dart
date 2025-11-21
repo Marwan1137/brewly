@@ -117,42 +117,48 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(height: 10),
 
                       SizedBox(
-                        height: 100,
+                        height:
+                            MediaQuery.of(context).size.height *
+                            0.10, // dynamic height
                         child: ListView.separated(
                           scrollDirection: Axis.horizontal,
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           itemCount: categories.length,
                           separatorBuilder: (_, _) => const SizedBox(width: 20),
                           itemBuilder: (context, index) {
                             final category = categories[index];
 
-                            return CategoryCard(
-                              category: category,
-                              onTap: () {
-                                // Here you can handle each category differently
-                                switch (category.name.toLowerCase()) {
-                                  case 'beans':
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (_) =>
-                                            CoffeeBeansTypesScreen(),
-                                      ),
-                                    );
-                                    break;
-                                  case 'capsules':
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (_) => CoffeeCapsulesScreen(),
-                                      ),
-                                    );
-                                    break;
-                                  case 'equipment':
-                                    break;
-                                  case 'methods':
-                                    break;
-                                }
-                              },
+                            return SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.20,
+                              child: CategoryCard(
+                                category: category,
+                                onTap: () {
+                                  switch (category.name.toLowerCase()) {
+                                    case 'beans':
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) =>
+                                              CoffeeBeansTypesScreen(),
+                                        ),
+                                      );
+                                      break;
+                                    case 'capsules':
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) =>
+                                              CoffeeCapsulesScreen(),
+                                        ),
+                                      );
+                                      break;
+                                    case 'equipment':
+                                      break;
+                                    case 'methods':
+                                      break;
+                                  }
+                                },
+                              ),
                             );
                           },
                         ),

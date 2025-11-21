@@ -13,6 +13,11 @@ class GenericDetailsScreen<T> extends StatelessWidget {
   final List<String> Function(T) getSuggestedDrinks;
   final Color? backgroundColor;
   final Color? chipColor;
+  final String? getOrigin;
+  final int? getIntensity;
+  final List<String> Function(T)? getMachines;
+  final int? getPopularity;
+  final double? rating;
 
   const GenericDetailsScreen({
     super.key,
@@ -26,6 +31,11 @@ class GenericDetailsScreen<T> extends StatelessWidget {
     required this.getSuggestedDrinks,
     this.backgroundColor,
     this.chipColor,
+    this.getOrigin,
+    this.getIntensity,
+    this.getMachines,
+    this.getPopularity,
+    this.rating,
   });
 
   @override
@@ -61,7 +71,8 @@ class GenericDetailsScreen<T> extends StatelessWidget {
                 child: Image.asset(getImage(selectedItem), fit: BoxFit.cover),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
+
             Padding(
               padding: const EdgeInsets.all(10),
               child: Text(
@@ -91,7 +102,141 @@ class GenericDetailsScreen<T> extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
+
+            if (getIntensity != null) ...[
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  'Intensity',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsGeometry.all(8),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: chipBgColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    '$getIntensity',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+
+            const SizedBox(height: 5),
+
+            if (getMachines != null) ...[
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  'Machines Can be Used On',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Wrap(
+                  spacing: 10,
+                  runSpacing: 8,
+                  children: [
+                    ...getMachines!(selectedItem).map((note) {
+                      return Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: chipBgColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          note,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+              ),
+            ],
+
+            const SizedBox(height: 5),
+            if (getOrigin != null) ...[
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  'Origin',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsGeometry.all(8),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: chipBgColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    getOrigin!,
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+            const SizedBox(height: 5),
+
+            if (getPopularity != null) ...[
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  'Popularity',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsGeometry.all(8),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: chipBgColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    '$getPopularity',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+            const SizedBox(height: 5),
+            if (rating != null) ...[
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  'Popularity',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsGeometry.all(8),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: chipBgColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text('$rating', style: TextStyle(color: Colors.white)),
+                ),
+              ),
+            ],
+
+            const SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: SingleChildScrollView(
@@ -132,7 +277,7 @@ class GenericDetailsScreen<T> extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 5),
+                            const SizedBox(height: 5),
                             ...getBrewingSteps(selectedItem)
                                 .skip(1)
                                 .map(
@@ -153,7 +298,7 @@ class GenericDetailsScreen<T> extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                               'Suggested Drinks',
                               style: TextStyle(
@@ -203,22 +348,22 @@ class GenericDetailsScreen<T> extends StatelessWidget {
                     'You Might Also Like',
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   SizedBox(
                     height: 200,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: true,
                       itemCount: 5,
-                      separatorBuilder: (_, _) => SizedBox(width: 12),
+                      separatorBuilder: (_, _) => const SizedBox(width: 12),
                       itemBuilder: (context, index) {
                         final mightLikeItem = allItems[index];
                         if (getName(selectedItem) == getName(mightLikeItem)) {
-                          return SizedBox.shrink();
+                          return const SizedBox.shrink();
                         }
                         return GestureDetector(
                           onTap: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                 builder: (_) => GenericDetailsScreen<T>(
@@ -232,6 +377,11 @@ class GenericDetailsScreen<T> extends StatelessWidget {
                                   getSuggestedDrinks: getSuggestedDrinks,
                                   backgroundColor: backgroundColor,
                                   chipColor: chipColor,
+                                  getIntensity: getIntensity,
+                                  getMachines: getMachines,
+                                  getOrigin: getOrigin,
+                                  getPopularity: getPopularity,
+                                  rating: rating,
                                 ),
                               ),
                             );
@@ -253,7 +403,7 @@ class GenericDetailsScreen<T> extends StatelessWidget {
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                                SizedBox(height: 8),
+                                const SizedBox(height: 8),
                                 Text(
                                   getName(mightLikeItem),
                                   style: TextStyle(
@@ -268,12 +418,12 @@ class GenericDetailsScreen<T> extends StatelessWidget {
                         );
                       },
                     ),
-                  ).animate().flip(delay: 700.ms, duration: 1000.ms),
+                  ).animate().scaleXY(delay: 200.ms, duration: 1000.ms),
                 ],
               ),
             ),
           ],
-        ).animate().flip(delay: 500.ms, duration: 900.ms),
+        ).animate().scale(delay: 200.ms, duration: 900.ms),
       ),
     );
   }

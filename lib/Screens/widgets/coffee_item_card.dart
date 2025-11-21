@@ -40,7 +40,7 @@ class GenericListScreen<T> extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(20),
         child: ListView.separated(
-          separatorBuilder: (context, index) => SizedBox(height: 15),
+          separatorBuilder: (context, index) => const SizedBox(height: 15),
           itemCount: items.length,
           itemBuilder: (context, index) {
             final item = items[index];
@@ -87,14 +87,14 @@ class GenericListScreen<T> extends StatelessWidget {
                             ),
                           ),
                         ],
-                      ).animate().flip(delay: 1000.ms, duration: 600.ms),
+                      ).animate().scaleXY(delay: 1000.ms, duration: 600.ms),
                     ),
                   ],
                 ),
               ),
             );
           },
-        ).animate().flip(delay: 800.ms, duration: 900.ms),
+        ).animate().scale(delay: 800.ms, duration: 900.ms),
       ),
     );
   }
