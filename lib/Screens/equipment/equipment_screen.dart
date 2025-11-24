@@ -1,4 +1,5 @@
 import 'package:brewly/Screens/equipment/logic/cubit/equipment_cubit.dart';
+import 'package:brewly/Screens/favourites/logic/cubit/favourites_cubit.dart';
 import 'package:brewly/Screens/widgets/coffee_item_card.dart';
 import 'package:brewly/data/DI/di.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,13 @@ class EquipmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<EquipmentCubit>()..loadEquipments(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<EquipmentCubit>()..loadEquipments(),
+        ),
+        BlocProvider(create: (context) => getIt<FavoritesCubit>()),
+      ],
       child: BlocBuilder<EquipmentCubit, EquipmentCubitState>(
         builder: (context, state) {
           if (state is EquipmentCubitLoading ||
@@ -32,16 +38,19 @@ class EquipmentScreen extends StatelessWidget {
             return GenericListScreen(
               title: 'Equipments',
               items: state.equipmentNames,
+              itemType: 'equipment',
               getImage: (equipment) => equipment.image,
               getName: (equipment) => equipment.name,
-              getDescription: (equipment) => '',
-              getLink: (equipment) => equipment.link,
+              getDescription: (equipment) => 'Tap to view details',
               onItemTap: (context, equipment) {
-                launchUrl(Uri.parse(equipment.link));
+                launchUrl(
+                  Uri.parse(equipment.link),
+                  mode: LaunchMode.externalApplication,
+                );
               },
             );
           }
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:brewly/Screens/coffee_beans/logic/cubit/coffee_beans_types_cubit.dart';
 import 'package:brewly/Screens/coffee_beans/coffee_details_screen.dart';
+import 'package:brewly/Screens/favourites/logic/cubit/favourites_cubit.dart';
 import 'package:brewly/Screens/widgets/coffee_item_card.dart';
 import 'package:brewly/data/DI/di.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,13 @@ class CoffeeBeansTypesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<CoffeeBeansTypesCubit>()..loadCoffeeTypes(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => getIt<CoffeeBeansTypesCubit>()..loadCoffeeTypes(),
+        ),
+        BlocProvider(create: (_) => getIt<FavoritesCubit>()),
+      ],
       child: BlocBuilder<CoffeeBeansTypesCubit, CoffeeBeansTypesState>(
         builder: (context, state) {
           if (state is CoffeeBeanTypesLoading ||
@@ -33,6 +39,7 @@ class CoffeeBeansTypesScreen extends StatelessWidget {
             return GenericListScreen(
               title: 'Coffee Beans Types',
               items: state.coffeeBeansTypes,
+              itemType: 'bean',
               getImage: (bean) => bean.image,
               getName: (bean) => bean.name,
               getDescription: (bean) => bean.description,
@@ -50,7 +57,7 @@ class CoffeeBeansTypesScreen extends StatelessWidget {
               },
             );
           }
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
       ),
     );

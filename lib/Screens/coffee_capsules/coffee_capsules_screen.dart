@@ -1,5 +1,6 @@
 import 'package:brewly/Screens/coffee_capsules/coffee_capsules_details_screen.dart';
 import 'package:brewly/Screens/coffee_capsules/logic/cubit/coffee_capsules_cubit.dart';
+import 'package:brewly/Screens/favourites/logic/cubit/favourites_cubit.dart';
 import 'package:brewly/Screens/widgets/coffee_item_card.dart';
 import 'package:brewly/data/DI/di.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,13 @@ class CoffeeCapsulesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<CoffeeCapsulesCubit>()..loadCoffeeCapsules(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => getIt<CoffeeCapsulesCubit>()..loadCoffeeCapsules(),
+        ),
+        BlocProvider(create: (_) => getIt<FavoritesCubit>()),
+      ],
       child: BlocBuilder<CoffeeCapsulesCubit, CoffeeCapsulesState>(
         builder: (context, state) {
           if (state is CoffeeCapsulesLoading ||
@@ -33,6 +39,7 @@ class CoffeeCapsulesScreen extends StatelessWidget {
             return GenericListScreen(
               title: 'Capsules Types',
               items: state.coffeeCapsulesNames,
+              itemType: 'capsule',
               getImage: (capsule) => capsule.image,
               getName: (capsule) => capsule.name,
               getDescription: (capsule) => capsule.flavorProfile,
