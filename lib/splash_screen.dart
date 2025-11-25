@@ -1,5 +1,5 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:brewly/navbar/UI/navbar.dart';
+import 'package:brewly/Screens/onboarding/on_boarding_screeen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -37,7 +37,7 @@ class SplashScreen extends StatelessWidget {
           ),
         ],
       ),
-      nextScreen: NavbarUi(),
+      nextScreen: OnBoardingScreeen(),
       splashIconSize: 400,
       backgroundColor: Color.fromARGB(68, 132, 68, 3),
     );

@@ -47,6 +47,7 @@ dependencies:
   injectable_generator: ^2.9.1
   url_launcher: ^6.3.2
   shared_preferences: ^2.5.3
+  smooth_page_indicator: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +85,7 @@ flutter:
     - assets/images/capsulesphotos/
     - assets/images/methodsimages/
     - assets/images/flags/
+    - assets/onboarding/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
