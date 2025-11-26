@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:brewly/Presentation/Screens/coffee_beans/coffee_beans_types_screen.dart';
 import 'package:brewly/Presentation/Screens/explore_tab/explore_screen.dart';
 import 'package:brewly/Presentation/Screens/quiz/logic/quiz_cubit.dart';
 import 'package:brewly/Presentation/Screens/quiz/logic/quiz_state.dart';
@@ -319,7 +320,7 @@ class _QuizResults extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ExploreScreen(),
+                      builder: (context) => const CoffeeBeansTypesScreen(),
                     ),
                   );
                 },
