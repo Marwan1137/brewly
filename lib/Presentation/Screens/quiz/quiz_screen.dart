@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:brewly/Presentation/Screens/explore_tab/explore_screen.dart';
 import 'package:brewly/Presentation/Screens/quiz/logic/quiz_cubit.dart';
 import 'package:brewly/Presentation/Screens/quiz/logic/quiz_state.dart';
 import 'package:brewly/data/DI/di.dart';
@@ -315,7 +316,12 @@ class _QuizResults extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ExploreScreen(),
+                    ),
+                  );
                 },
                 child: const Text(
                   'Explore Your Matches',
