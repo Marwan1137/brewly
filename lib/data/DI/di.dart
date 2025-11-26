@@ -2,7 +2,7 @@
 
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'di.config.dart';
 
 final getIt = GetIt.instance;
@@ -13,10 +13,5 @@ final getIt = GetIt.instance;
   asExtension: true,
 )
 Future<void> configureDependencies() async {
-  // Register SharedPreferences BEFORE calling getIt.init()
-  final sharedPreferences = await SharedPreferences.getInstance();
-  getIt.registerSingleton<SharedPreferences>(sharedPreferences);
-
-  // Then initialize GetIt
-  getIt.init();
+  await getIt.init();
 }

@@ -1,17 +1,22 @@
 import 'dart:convert';
-
 import 'package:brewly/domain/entities/favourites.dart';
 import 'package:brewly/domain/repositories/favourites_repo.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 @LazySingleton(as: FavoritesRepo)
 class FavoritesRepoImpl implements FavoritesRepo {
   final SharedPreferences _prefs;
+  final SupabaseClient _supabase;
 
-  FavoritesRepoImpl(this._prefs);
+  FavoritesRepoImpl(this._prefs, this._supabase);
 
-  static const String _favoritesKey = 'favorites';
+  // Get user-specific favorites key
+  String get _favoritesKey {
+    final userId = _supabase.auth.currentUser?.id ?? 'guest';
+    return 'favorites_$userId';
+  }
 
   @override
   Future<List<FavoriteItem>> getFavorites() async {
@@ -36,7 +41,6 @@ class FavoritesRepoImpl implements FavoritesRepo {
   Future<void> addFavorite(FavoriteItem item) async {
     final favorites = await getFavorites();
 
-    // Check if already exists
     final exists = favorites.any(
       (f) => f.name == item.name && f.type == item.type,
     );
@@ -72,5 +76,10 @@ class FavoritesRepoImpl implements FavoritesRepo {
         )
         .toList();
     await _prefs.setString(_favoritesKey, json.encode(favoritesJson));
+  }
+
+  // Clear favorites when user signs out
+  Future<void> clearFavorites() async {
+    await _prefs.remove(_favoritesKey);
   }
 }
