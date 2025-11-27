@@ -395,7 +395,7 @@ We welcome contributions! Please follow these steps:
 - [ ] **Tasting Notes** - Personal coffee reviews
 - [ ] **iOS Support** - Full iOS optimization
 - [ ] **Web Version** - Progressive Web App
--->
+
 
 ---
 
@@ -406,6 +406,7 @@ We welcome contributions! Please follow these steps:
 - Quiz history UI needs optimization for tablets
 
 Please report issues on our [GitHub Issues](https://github.com/Marwan1137/brewly/issues) page.
+-->
 
 ---
 
@@ -420,7 +421,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 **Marwan**
 
 - GitHub: [@Marwan1137](https://github.com/Marwan1137)
-- Email: your.email@example.com
+- Email: marwan.hakil79@gmail.com
 
 ---
 
