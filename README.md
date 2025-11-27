@@ -382,6 +382,7 @@ We welcome contributions! Please follow these steps:
 
 ---
 
+<!--
 ## 📝 Roadmap
 
 - [ ] **Social Features** - Share favorite coffees with friends
@@ -394,6 +395,7 @@ We welcome contributions! Please follow these steps:
 - [ ] **Tasting Notes** - Personal coffee reviews
 - [ ] **iOS Support** - Full iOS optimization
 - [ ] **Web Version** - Progressive Web App
+-->
 
 ---
 
